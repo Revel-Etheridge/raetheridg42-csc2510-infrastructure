@@ -1,0 +1,16 @@
+- hosts: all
+  become: 'yes'
+- name: 'Task 1, Update APT'
+  ansible.builtin.apt:
+    update_cache: true
+- name: 'Task 2, Install python-apt'
+  hosts: 10.142.0.5
+  become: 'yes'
+  tasks:
+    - name: 'Task 2a, Install python-apt'
+      state: present
+    - name: 'Task 2b, Install apache2'
+      apt:
+        name: apache2
+        state: present
+
