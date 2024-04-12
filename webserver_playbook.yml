@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  become: 'yes'
+  become: yes
   become_method: sudo
   tasks:
     - name: 'Task 1, Update APT'
@@ -16,11 +16,12 @@
         state: latest
     - name: 'Task 4, Copy apache2.conf'
       ansible.builtin.copy:
-        srch: ~/raetheridg42-csc2510-infrastructure/apache2.conf
-        dest: ~/raetheridg42-csc2510-infrastructure/files/config
+        src: /apache2.conf
+        dest: /~/raetheridg42-csc2510-infrastructure/files/config
+        remote_src: yes
     - name: 'Task 5, Copy index.html'
       ansible.builtin.copy:
-        srch: ~/raetheridg42-csc2510-infrastructure/index.html
+        src: ~/raetheridg42-csc2510-infrastructure/index.html
         dest: ~/raetheridg42-csc2510-infrastructure/files/site
     - name: 'Task 6, Create symbolic link'
       ansible.builtin.copy:
@@ -31,5 +32,4 @@
       ansible.builtin.service:
         name: apache2
         state: restarted
-
 
