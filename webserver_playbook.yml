@@ -6,23 +6,30 @@
     - name: 'Task 1, Update APT'
       ansible.builtin.apt:
         update_cache: true
-    - name: 'Task 2a, Install python-apt'
+    - name: 'Task 2, Install python-apt'
       ansible.builtin.package:
         name: python-apt
         state: latest
-    - name: 'Task 2b, Install apache2'
+    - name: 'Task 3, Install apache2'
       ansible.builtin.package:
         name: apache2
         state: latest
-    - name: 'Task 3, Create symbolic link'
+    - name: 'Task 4, Copy apache2.conf'
+      ansible.builtin.copy:
+        srch: ~/raetheridg42-csc2510-infrastructure/apache2.conf
+        dest: ~/raetheridg42-csc2510-infrastructure/files/config
+    - name: 'Task 5, Copy index.html'
+      ansible.builtin.copy:
+        srch: ~/raetheridg42-csc2510-infrastructure/index.html
+        dest: ~/raetheridg42-csc2510-infrastructure/files/site
+    - name: 'Task 6, Create symbolic link'
       ansible.builtin.copy:
         src: /etc/apache2/mods-available/headers/load
         dest: /etc/apache2/mods-enabled/headers/load
         state: link
-    - name: 'Task 4, Restart apache2'
+    - name: 'Task 7, Restart apache2'
       ansible.builtin.service:
         name: apache2
         state: restarted
-
 
 
