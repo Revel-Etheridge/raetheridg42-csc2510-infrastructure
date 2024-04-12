@@ -16,13 +16,12 @@
         state: latest
     - name: 'Task 4, Copy apache2.conf'
       ansible.builtin.copy:
-        src: /apache2.conf
-        dest: /~/raetheridg42-csc2510-infrastructure/files/config
-        remote_src: yes
+        src: /home/reveletheridge/raetheridg42-csc2510-infrastructure/apache2.conf
+        dest: /home/raetheridg42-csc2510-infrastructure/files/config/
     - name: 'Task 5, Copy index.html'
       ansible.builtin.copy:
-        src: ~/raetheridg42-csc2510-infrastructure/index.html
-        dest: ~/raetheridg42-csc2510-infrastructure/files/site
+        src: /home/reveletheridge/raetheridg42-csc2510-infrastructure/index.html
+        dest: /home/reveletheridge/raetheridg42-csc2510-infrastructure/files/site/
     - name: 'Task 6, Create symbolic link'
       ansible.builtin.copy:
         src: /etc/apache2/mods-available/headers/load
