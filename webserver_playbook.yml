@@ -24,8 +24,8 @@
         dest: /home/reveletheridge/raetheridg42-csc2510-infrastructure/files/site/
     - name: 'Task 6, Create symbolic link'
       ansible.builtin.copy:
-        src: /etc/apache2/mods-available/headers/load
-        dest: /etc/apache2/mods-enabled/headers/load
+        src: /home/reveletheridge/raetheridg42-csc2510-infrastructure/index.html
+        dest: /home/reveletheridge/raetheridg42-csc2510-infrastructure/files/site/
         state: link
     - name: 'Task 7, Restart apache2'
       ansible.builtin.service:
