@@ -1,7 +1,8 @@
 ---
 - hosts: all
+  become_method: sudo
   roles:
-    - role: "/home/reveletheridge/raetheridg42-csc2510-infrastructure/apache2/tasks/"
+    - role: apache2
 #  tasks:
 #    - name: 'Task 1, Update APT'
 #       ansible.builtin.apt:
