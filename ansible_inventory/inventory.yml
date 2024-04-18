@@ -4,5 +4,5 @@ all:
     webservers:
       hosts:
         demo:
-          ansible_host:  10.142.0.5
+          ansible_host:  10.142.0.6
 
