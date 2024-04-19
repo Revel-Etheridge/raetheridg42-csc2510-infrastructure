@@ -1,23 +1,22 @@
 ---
-# tasks file for apache2
-    - name: 'Task 2, Install python-apt'
-      ansible.builtin.package:
-        name: python-apt
-        state: latest
-    - name: 'Task 3, Install apache2'
-      ansible.builtin.package:
-        name: apache2
-        state: latest
-    - name: 'Task 4, Copy apache2.conf'
-      ansible.builtin.copy:
-        src: '{{ var1 }}'
-        dest: /etc/apache2/apache2.conf
-    - name: 'Task 5, Copy index.html'
-      ansible.builtin.copy:
-        src: '{{ var2 }}'
-        dest: /var/www/html/index.html
-    - name: 'Task 6, Create symbolic link'
-      ansible.builtin.copy:
-        src: /etc/apache2/mods-available/headers.load
-        dest: /etc/apache2/mods-available/headers.load
-        state: link
+- name: Install apache2
+  ansible.builtin.package:
+    name: apache2
+    state: latest
+
+- name: Copy apache2.conf
+  ansible.builtin.copy:
+    src: '{{ var1 }}'
+    dest: /etc/apache2/apache2.conf
+
+- name: Copy index.html
+  ansible.builtin.copy:
+    src: '{{ var2 }}'
+    dest: /var/www/html/index.html
+
+- name: Create symbolic link
+  ansible.builtin.copy:
+    src: /etc/apache2/mods-available/headers.load
+    dest: /etc/apache2/mods-available/headers.load
+    state: link
+

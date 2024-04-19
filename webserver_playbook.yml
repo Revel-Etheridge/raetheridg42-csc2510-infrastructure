@@ -1,7 +1,9 @@
 ---
 - hosts: all
+  become: yes
   become_method: sudo
   roles:
+    - role: update_apt
     - role: apache2
 #  tasks:
 #    - name: 'Task 1, Update APT'
