@@ -25,3 +25,6 @@
     dest: /etc/apache2/mods-available/headers.load
     state: link
     force: yes
+  notify:
+    - Restart apache2
+
