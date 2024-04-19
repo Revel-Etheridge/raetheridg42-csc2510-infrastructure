@@ -13,10 +13,9 @@
   ansible.builtin.copy:
     src: '{{ var2 }}'
     dest: /var/www/html/index.html
-
-- name: Create symbolic link
-  ansible.builtin.copy:
+- name: Create symbolic link for enabling site
+  file:
     src: /etc/apache2/mods-available/headers.load
     dest: /etc/apache2/mods-available/headers.load
     state: link
-
+    force: yes
