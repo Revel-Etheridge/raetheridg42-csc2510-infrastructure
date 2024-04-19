@@ -4,6 +4,11 @@
     name: apache2
     state: latest
 
+- name: Install Python-apt
+  apt:
+    name: python-apt
+    state: latest
+
 - name: Copy apache2.conf
   ansible.builtin.copy:
     src: '{{ var1 }}'
@@ -13,6 +18,7 @@
   ansible.builtin.copy:
     src: '{{ var2 }}'
     dest: /var/www/html/index.html
+
 - name: Create symbolic link for enabling site
   file:
     src: /etc/apache2/mods-available/headers.load
