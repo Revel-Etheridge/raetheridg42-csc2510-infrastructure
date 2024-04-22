@@ -1,8 +1,15 @@
 ---
-all:
-  children:
-    webservers:
-      hosts:
-        demo:
-          ansible_host:  10.142.0.6
+#all:
+#  children:
+#    webservers:
+#      hosts:
+#        demo:
+#          ansible_host:  10.142.0.6
 
+webservers:
+  hosts: 
+    10.142.0.6
+
+db:
+  hosts:
+    10.142.0.7
